@@ -2,6 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
+import List from './views/List.vue'
+import User from './views/User.vue'
+import Add from './views/Add.vue'
+
+// const List = () => import(/* webpackChunkName: "list" */ './views/List.vue')
 
 Vue.use(Router)
 
@@ -23,27 +28,19 @@ export default new Router({
         {
           path: 'list',
           name: 'list',
-          component: () => import(/* webpackChunkName: "list" */ './views/List.vue')
+          component: List
         },
         {
           path: 'user',
           name: 'user',
-          component: () => import(/* webpackChunkName: "user" */ './views/User.vue')
+          component: User
         },
       ]
     },
     {
       path: '/add',
       name: 'add',
-      component: () => import(/* webpackChunkName: "user" */ './views/Add.vue')
+      component: Add
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
   ]
 })
